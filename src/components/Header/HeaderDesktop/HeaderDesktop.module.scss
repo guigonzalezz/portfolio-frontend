@@ -1,0 +1,61 @@
+@import "/src/styles/variables";
+
+
+.header {
+  background-color: $second-background;
+  color: $letter;
+  height: 9vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 2rem;
+
+  span {
+    font-size: 12px;
+  }
+
+  div {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    .optionsRight {
+      justify-content: space-between;
+      span {
+        cursor: pointer;  
+        filter: brightness(130%);
+        &:hover {
+          color: $third-background;
+        }
+      }
+    }
+    .optionsLeft {
+      justify-content: right;
+
+      span {
+        margin-right: 10px;
+      }
+    }
+
+    button {
+      border: 2px $third-background solid;
+      background: transparent;
+      color: $third-background;
+      font-family: 'SignPainter', sans-serif;
+      font-size: 20px;
+      border-radius: 10px;
+      height: 33px;
+      width: 150px;
+
+      &:hover {
+        cursor: pointer;  
+        filter: brightness(130%);
+      }
+    }
+  }
+}
+
+
+
