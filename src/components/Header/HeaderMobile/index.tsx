@@ -1,5 +1,6 @@
 import styles from './HeaderMobile.module.scss'
 import Image from 'next/image'
+import Drawer from '../../Drawer'
 
 const HeaderMobile = () => {
 
@@ -8,10 +9,7 @@ const HeaderMobile = () => {
     <header className={styles.header}>
       <div>
         <div className={styles.optionsRight}>
-          <span>About me</span>
-          <span>Projects</span>
-          <span>Experience</span>
-          <span>Education</span>
+          <Drawer />
         </div>
       </div>
       <div>
