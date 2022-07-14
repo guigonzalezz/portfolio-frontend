@@ -1,5 +1,6 @@
 import type { GetServerSideProps, NextPage } from 'next'
 import Head from 'next/head'
+import Footer from '../components/Footer'
 import Header from '../components/Header'
 
 import styles from '../styles/Home.module.scss'
@@ -14,30 +15,26 @@ const Home: NextPage = () => {
       <div>
         <Header />
         <main className={styles.main}>
-          <p className={styles.description}>
+          <p>
             Photos
           </p>
 
-          <p className={styles.description}>
+          <p>
             Aboutme/Experience/Education/Skills
           </p>
 
-          <p className={styles.description}>
+          <p>
             Projects/Repositories/Gist
           </p>
 
-          <p className={styles.description}>
+          <p>
             Contact
           </p>
 
 
         </main>
 
-        <footer className={styles.footer}>
-          <h1 className={styles.title}>
-            Footer
-          </h1>
-        </footer>
+        <Footer />
       </div>
     </>
   )
