@@ -22,6 +22,9 @@
     justify-content: center;
 
     .optionsRight {
+      justify-content: right;
+    }
+    .optionsLeft {
       justify-content: space-between;
       span {
         cursor: pointer;  
@@ -30,29 +33,9 @@
           color: $third-background;
         }
       }
-    }
-    .optionsLeft {
-      justify-content: right;
 
-      span {
-        margin-right: 10px;
-      }
     }
 
-    button {
-      border: 2px $third-background solid;
-      background: transparent;
-      color: $third-background;
-      font-family: 'SignPainter', sans-serif;
-      font-size: 20px;
-      border-radius: 10px;
-      height: 33px;
-      width: 150px;
-
-      &:hover {
-        cursor: pointer;  
-        filter: brightness(130%);
-      }
-    }
+    
   }
 }
