@@ -1,11 +1,56 @@
-import type { GetServerSideProps, NextPage } from 'next'
+import type { GetServerSideProps, GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import axios from 'axios'
 
 import styles from '../styles/Home.module.scss'
 
-const Home: NextPage = () => {
+const URL = process.env.BACKEND_CMS_URL
+
+export const getStaticProps: GetStaticProps = async (context) => {
+ 
+  await Promise.all([
+    
+  ])
+
+  const res = await axios.post(`${URL}/graphql`,{
+    query: `{
+      experiences {
+        data {
+          attributes {
+            company
+            where
+            whenstarted
+            whenended
+            experiencedetails {
+              data {
+                attributes {
+                  title
+                  whenstarted
+                  whenended
+                  description
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+    `
+  })
+  
+  console.log("res ==>", res.data)
+  const {data} = res; 
+
+  return {
+    props: {experiences: data}, 
+    revalidate: 10, 
+  };
+}
+
+const Home: NextPage = ({experiences}:any) => {
+  console.log("experiences =>", experiences)
   return (
     <>
       <Head>
@@ -38,15 +83,6 @@ const Home: NextPage = () => {
       </div>
     </>
   )
-}
-
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  // Fetch data from external API
-  // const res = await fetch(`https://.../data`)
-  const data = {} //await res.json()
-
-  // Pass data to the page via props
-  return { props: { data } }
 }
 
 export default Home
