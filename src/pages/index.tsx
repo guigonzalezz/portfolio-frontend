@@ -1,56 +1,24 @@
-import type { GetServerSideProps, GetStaticProps, NextPage } from 'next'
+import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
-import axios from 'axios'
+
 
 import styles from '../styles/Home.module.scss'
+import { getGraphQLData } from '../utility/graphqlData'
 
-const URL = process.env.BACKEND_CMS_URL
 
 export const getStaticProps: GetStaticProps = async (context) => {
- 
-  await Promise.all([
-    
-  ])
-
-  const res = await axios.post(`${URL}/graphql`,{
-    query: `{
-      experiences {
-        data {
-          attributes {
-            company
-            where
-            whenstarted
-            whenended
-            experiencedetails {
-              data {
-                attributes {
-                  title
-                  whenstarted
-                  whenended
-                  description
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-    `
-  })
-  
-  console.log("res ==>", res.data)
-  const {data} = res; 
-
   return {
-    props: {experiences: data}, 
-    revalidate: 10, 
+    props: {
+      data: await getGraphQLData()
+    }, 
+    revalidate: 3600, //3600sec = 60min = 1h
   };
 }
 
-const Home: NextPage = ({experiences}:any) => {
-  console.log("experiences =>", experiences)
+const Home: NextPage = ({data}:any) => {
+
   return (
     <>
       <Head>

@@ -2,10 +2,9 @@
 import axios from 'axios'
 const URL = `${process.env.BACKEND_CMS_URL}/graphql`
 
-
-//SUBSTITUIR POR UM JSON COM 1 FUNCAO SO
-async function experiencesEndpoint() {
-  return  await axios.post(URL,{
+const data  = [
+  {
+    name: 'experience',
     query: `{
       experiences {
         data {
@@ -29,16 +28,9 @@ async function experiencesEndpoint() {
       }
     }
     `
-  }).then(res=>{
-    return res.data;
-  }).catch(e => {
-    console.log("Error =>",e);
-    return [];
-  })
-}
-
-async function aboutEndpoint() {
-  return  await axios.post(URL,{
+  },
+  {
+    name: 'about',
     query: `{
       abouts{
         data{
@@ -58,18 +50,10 @@ async function aboutEndpoint() {
           }
         }
       }
-    }
-    `
-  }).then(res=>{
-    return res.data;
-  }).catch(e => {
-    console.log("Error =>",e);
-    return [];
-  })
-}
-
-async function certificationEndpoint() {
-  return  await axios.post(URL,{
+    }`
+  },
+  {
+    name: 'certification',
     query: `{
       certifications {
         data {
@@ -82,18 +66,10 @@ async function certificationEndpoint() {
           }
         }
       }
-    }
-    `
-  }).then(res=>{
-    return res.data;
-  }).catch(e => {
-    console.log("Error =>",e);
-    return [];
-  })
-}
-
-async function educationEndpoint() {
-  return  await axios.post(URL,{
+    }`
+  },
+  {
+    name: 'education',
     query: `{
       educations {
         data {
@@ -106,19 +82,10 @@ async function educationEndpoint() {
           }
         }
       }
-    }
-    `
-  }).then(res=>{
-    return res.data;
-  }).catch(e => {
-    console.log("Error =>",e);
-    return [];
-  })
-}
-
-
-async function languageEndpoint() {
-  return  await axios.post(URL,{
+    }`
+  },
+  {
+    name: 'language',
     query: `{
       languages {
         data {
@@ -128,18 +95,10 @@ async function languageEndpoint() {
           }
         }
       }
-    }
-    `
-  }).then(res=>{
-    return res.data;
-  }).catch(e => {
-    console.log("Error =>",e);
-    return [];
-  })
-}
-
-async function projectEndpoint() {
-  return  await axios.post(URL,{
+    }`
+  },
+  {
+    name: 'project',
     query: `{
       projects {
         data {
@@ -160,18 +119,10 @@ async function projectEndpoint() {
           }
         }
       }
-    }
-    `
-  }).then(res=>{
-    return res.data;
-  }).catch(e => {
-    console.log("Error =>",e);
-    return [];
-  })
-}
-
-async function skillEndpoint() {
-  return  await axios.post(URL,{
+    }`
+  },
+  {
+    name: 'skill',
     query: `{
       skills {
         data {
@@ -191,18 +142,10 @@ async function skillEndpoint() {
           }
         }
       }
-    }
-    `
-  }).then(res=>{
-    return res.data;
-  }).catch(e => {
-    console.log("Error =>",e);
-    return [];
-  })
-}
-
-async function mediaEndpoint() {
-  return  await axios.post(URL,{
+    }`
+  },
+  {
+    name: 'media',
     query: `{
       medias {
         data {
@@ -220,16 +163,25 @@ async function mediaEndpoint() {
           }
         }
       }
-    }
-    `
-  }).then(res=>{
-    return res.data;
-  }).catch(e => {
-    console.log("Error =>",e);
-    return [];
-  })
+    }`
+  }
+]
+
+async function getGraphQLData() {
+  const res: { name: string; data: any; }[] = [];
+
+  await Promise.all(data.map(async item => {
+    await axios.post(URL,{query: item.query})
+    .then(response => {
+      res.push({
+        name: item.name,
+        data: response.data.data
+      })
+    })
+  }))
+  return res;
 }
 
 
 
-export { experiencesEndpoint }
+export { getGraphQLData }
