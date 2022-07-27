@@ -4,14 +4,14 @@
 .header {
   background-color: $second-background;
   color: $letter;
-  height: 9vh;
+  height: 65px;
   display: flex;
   align-items: center;
   justify-content: space-around;
   padding: 0 2rem;
-  position: fixed;
-  top: 0;
-  width: 100%;
+  
+  flex: none;
+  
 
   span {
     font-size: 12px;
