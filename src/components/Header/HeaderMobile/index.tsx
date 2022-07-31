@@ -3,7 +3,7 @@ import Image from 'next/image'
 import Drawer from '../../Drawer'
 import PermPhoneMsgIcon from '@mui/icons-material/PermPhoneMsg';
 
-const HeaderMobile = () => {
+export default function HeaderMobile() {
 
 
   return (
@@ -25,6 +25,3 @@ const HeaderMobile = () => {
   )
 }
 
-
-
-export default HeaderMobile

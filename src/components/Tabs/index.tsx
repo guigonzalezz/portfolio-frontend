@@ -76,6 +76,7 @@ function TabPanel(props: ITabPanelProps) {
     <div
       role="tabpanel"
       hidden={value !== index}
+      key={`keypanel-${index}`}
       id={`tabpanel-${index}`}
       aria-labelledby={`tab-${index}`}
       {...other}
@@ -91,6 +92,7 @@ function TabPanel(props: ITabPanelProps) {
 
 function a11yProps(index: number, name:string) {
   return {
+    key: `key-${name}-${index}`,
     id: `tab-${name}-${index}`,
     'aria-controls': `tabpanel-${name}-${index}`
   };

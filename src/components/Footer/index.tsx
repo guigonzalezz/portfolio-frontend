@@ -7,7 +7,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import Link from 'next/link';
 
-const Footer = () => {
+export default function Footer () {
   
 
 
@@ -42,4 +42,3 @@ const Footer = () => {
 }
 
 
-export default Footer

@@ -1,7 +1,7 @@
 import styles from './HeaderDesktop.module.scss'
 import Image from 'next/image'
 
-const HeaderDesktop = () => {
+export default function HeaderDesktop () {
 
 
   return (
@@ -29,4 +29,3 @@ const HeaderDesktop = () => {
 
 
 
-export default HeaderDesktop
