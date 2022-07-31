@@ -3,8 +3,8 @@ import * as React from 'react';
 export default function Education(data:any) {
  
   return (
-    <>
+    <section>
       Education
-    </>
+    </section>
   );
 }

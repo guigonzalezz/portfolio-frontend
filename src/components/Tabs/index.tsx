@@ -82,7 +82,7 @@ function TabPanel(props: ITabPanelProps) {
       {...other}
     >
       {value === index && (
-        <Box sx={{ p: 3 }}>
+        <Box>
           {children}
         </Box>
       )}
@@ -106,9 +106,9 @@ export default function MyTabs({data}: { data: IProps[] }) {
   };
 
   return (
-    <Box sx={{ width: '100%' }}>
+    <Box >
       <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+        <Tabs value={value} onChange={handleChange} aria-label="tabs" textColor="secondary" indicatorColor="secondary" centered>
           { data.map((item, index) => <Tab sx={{color:'white'}} label={item.name} icon={chooseIcon(item.name)}  iconPosition="start" {...a11yProps(index,item.name)}/>) }
         </Tabs>
       </Box>

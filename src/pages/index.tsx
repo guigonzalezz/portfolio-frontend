@@ -3,6 +3,8 @@ import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
+import Contact from '../components/Home/Contact'
+import Photos from '../components/Home/Photos'
 import MyTabs from '../components/Tabs'
 
 
@@ -16,6 +18,10 @@ interface IProps {
 }
 
 export const getStaticProps: GetStaticProps = async (context) => {
+  //TODO: Reduce the size data returned, cuz exceeds the threshold
+  //Now: 260 kB
+  //Reduce to: less than 128 kB
+
   return {
     props: {
       data: [
@@ -41,21 +47,11 @@ const Home: NextPage<{data: IProps[]}> = ({data}) => {
       <div>
         <Header />
         <main className={styles.main}>
-          <p>
-            Photos
-          </p>
-          
+          <Photos />
           <MyTabs data={firstSection}/>
-         
           <MyTabs data={secondSection}/>
-
-          <p>
-            Contact
-          </p>
-
-
+          <Contact />
         </main>
-
         <Footer />
       </div>
     </>
