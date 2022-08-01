@@ -106,13 +106,25 @@ export default function MyTabs({data}: { data: IProps[] }) {
   };
 
   return (
-    <Box >
-      <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
-        <Tabs value={value} onChange={handleChange} aria-label="tabs" textColor="secondary" indicatorColor="secondary" centered>
+    <Box className={styles['box']}>
+      <Box className={styles['section-titles']} sx={{ maxWidth: { xs: 320, sm: 600 } }}>
+        <Tabs 
+          variant="scrollable" 
+          scrollButtons="auto" 
+          className={styles['tabs']} 
+          value={value} 
+          onChange={handleChange} 
+          aria-label="tabs" 
+          textColor="secondary" 
+          indicatorColor="secondary" 
+          centered
+        >
           { data.map((item, index) => <Tab sx={{color:'white'}} label={item.name} icon={chooseIcon(item.name)}  iconPosition="start" {...a11yProps(index,item.name)}/>) }
         </Tabs>
       </Box>
-      { data.map((item, index) => <TabPanel value={value} index={index} children={chooseComponent(item)} />) }
+      {//@ts-ignore - ignore the error on className not being a propertie from TabPanel 
+        data.map((item, index) => <TabPanel value={value} index={index} children={chooseComponent(item)} className={styles['section-panel']}  />)
+      }
     </Box>
   );
 }
