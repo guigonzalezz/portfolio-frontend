@@ -107,7 +107,7 @@ export default function MyTabs({data}: { data: IProps[] }) {
 
   return (
     <Box className={styles['box']}>
-      <Box className={styles['section-titles']} sx={{ maxWidth: { xs: 320, sm: 600 } }}>
+      <Box className={styles['section-titles']} sx={{ maxWidth: { xs: 320, sm:440 ,md: 600  } }}>
         <Tabs 
           variant="scrollable" 
           scrollButtons="auto" 
@@ -117,7 +117,6 @@ export default function MyTabs({data}: { data: IProps[] }) {
           aria-label="tabs" 
           textColor="secondary" 
           indicatorColor="secondary" 
-          centered
         >
           { data.map((item, index) => <Tab sx={{color:'white'}} label={item.name} icon={chooseIcon(item.name)}  iconPosition="start" {...a11yProps(index,item.name)}/>) }
         </Tabs>
