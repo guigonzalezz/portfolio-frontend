@@ -170,12 +170,14 @@ const data  = [
 async function getGraphQLData() {
   const res: { name: string; data: any; }[] = [];
 
+  const preProcessData = (name: string, data: any) => data?.[`${name}s`].data
+
   await Promise.all(data.map(async item => {
     await axios.post(URL,{query: item.query})
     .then(response => {
       res.push({
         name: item.name,
-        data: response.data.data
+        data: preProcessData(item.name, response.data.data)
       })
     })
   }))
