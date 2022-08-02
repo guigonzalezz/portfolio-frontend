@@ -6,7 +6,9 @@ export default function Contact({ data, backgroundImg}: any) {
   return (
     <Box className={styles.box}>
       <Box>
-        <img src={backgroundImg} alt="background image"/>
+        <Box>
+          <img src={backgroundImg} alt="background image"/>
+        </Box>
         <section>
           Contact
         </section>
