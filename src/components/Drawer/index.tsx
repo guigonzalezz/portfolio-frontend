@@ -34,6 +34,7 @@ export default function TemporaryDrawer() {
         anchor={"left"}
         open={state}
         onClose={toggleDrawer(false)}
+        disableScrollLock={ true }
       >
         <Box
           sx={{ width: 250, height: '100%'}}
