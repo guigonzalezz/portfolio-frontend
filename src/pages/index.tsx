@@ -38,6 +38,12 @@ const Home: NextPage<{data: IProps[]}> = ({data}) => {
   const firstSection = data.filter((item: IProps) => ['about', 'experience', 'education', 'skill'].includes(item.name))
   const secondSection = data.filter((item: IProps) => ['project', 'repositories', 'gist'].includes(item.name))
 
+  const medias = data.find(e => e.name === 'media')?.data;
+  
+  const rightBackground = medias.find((e:any) => e.attributes.photo.data.attributes.name == 'background-right.png').attributes.photo.data.attributes
+  const leftBackground = medias.find((e:any) => e.attributes.photo.data.attributes.name == 'background-left.png').attributes.photo.data.attributes
+
+  
   return (
     <>
       <Head>
@@ -47,10 +53,24 @@ const Home: NextPage<{data: IProps[]}> = ({data}) => {
       <div>
         <Header />
         <main className={styles.main}>
-          <Photos />
+
+          <Box className={styles.box}>
+            <Box>
+              <img src={rightBackground.url} alt="background image"/>
+              <Photos />
+            </Box>
+          </Box>
+
           <MyTabs data={firstSection}/>
+
           <MyTabs data={secondSection}/>
-          <Contact />
+
+          <Box className={styles.box}>
+            <Box>
+              <img src={leftBackground.url} alt="background image"/>
+              <Contact />
+            </Box>
+          </Box>
         </main>
         <Footer />
       </div>
