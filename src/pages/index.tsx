@@ -54,23 +54,14 @@ const Home: NextPage<{data: IProps[]}> = ({data}) => {
         <Header />
         <main className={styles.main}>
 
-          <Box className={styles.box}>
-            <Box>
-              <img src={rightBackground.url} alt="background image"/>
-              <Photos />
-            </Box>
-          </Box>
+          <Photos backgroundImg={rightBackground.url}/>
 
           <MyTabs data={firstSection}/>
 
           <MyTabs data={secondSection}/>
 
-          <Box className={styles.box}>
-            <Box>
-              <img src={leftBackground.url} alt="background image"/>
-              <Contact />
-            </Box>
-          </Box>
+          <Contact backgroundImg={leftBackground.url}/>
+
         </main>
         <Footer />
       </div>
