@@ -1,5 +1,7 @@
-import * as React from 'react';
+import { useEffect, ReactNode, SyntheticEvent, useState } from 'react';
 import styles from './Tabs.module.scss'
+import { useRouter } from 'next/router'
+import { useNavigate, useLocation } from 'react-router-dom'
 
 //Components
 import { Box, Tabs, Tab } from '@mui/material';
@@ -26,7 +28,7 @@ interface IProps {
 }
 
 interface ITabPanelProps {
-  children?: React.ReactNode;
+  children?: ReactNode;
   index: number;
   value: number;
 }
@@ -92,18 +94,23 @@ function TabPanel(props: ITabPanelProps) {
 
 function a11yProps(index: number, name:string) {
   return {
-    key: `key-${name}-${index}`,
     id: `tab-${name}-${index}`,
-    'aria-controls': `tabpanel-${name}-${index}`
+    'aria-controls': `tabpanel-${name}-${index}`,
   };
 }
 
 export default function MyTabs({data}: { data: IProps[] }) {
-  const [value, setValue] = React.useState(0);
+  const [value, setValue] = useState(0);
+  const router = useRouter();
 
-  const handleChange = (event: React.SyntheticEvent, newValue: number) => {
+
+  const handleChange = (event: SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
+  // console.log("window ==>", window.location.hash)
+  // useEffect(()=>{
+  //   console.log(`You changed the page to: ${window.location.hash}`)
+  // },[window.location.hash])
 
   return (
     <Box className={styles['box']}>
@@ -118,11 +125,12 @@ export default function MyTabs({data}: { data: IProps[] }) {
           textColor="secondary" 
           indicatorColor="secondary" 
         >
-          { data.map((item, index) => <Tab sx={{color:'white'}} label={item.name} icon={chooseIcon(item.name)}  iconPosition="start" {...a11yProps(index,item.name)}/>) }
+          { data.map((item, index) => <Tab key={`key-${item.name}-${index}`} sx={{color:'white'}} label={item.name} icon={chooseIcon(item.name)}  iconPosition="start" {...a11yProps(index,item.name)}/>) }
         </Tabs>
       </Box>
-      {//@ts-ignore - ignore the error on className not being a propertie from TabPanel 
-        data.map((item, index) => <TabPanel value={value} index={index} children={chooseComponent(item)} className={styles['section-panel']}  />)
+      {
+        // eslint-disable-next-line react/no-children-prop
+        data.map((item, index) => <TabPanel key={index} value={value} index={index} className={styles['section-panel']} children={chooseComponent(item)} />)
       }
     </Box>
   );

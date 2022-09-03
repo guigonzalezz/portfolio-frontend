@@ -3,7 +3,7 @@ import * as React from 'react';
 export default function Skills(data:any) {
  
   return (
-    <section>
+    <section id="skills">
       Skills
     </section>
   );

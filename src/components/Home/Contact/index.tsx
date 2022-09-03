@@ -4,7 +4,7 @@ import styles from './Contact.module.scss'
 export default function Contact({ data, backgroundImg}: any) {
  
   return (
-    <Box className={styles.box}>
+    <Box id="contact" className={styles.box}>
       <Box>
         <Box>
           <img src={backgroundImg} alt="background image"/>

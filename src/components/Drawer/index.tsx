@@ -13,6 +13,7 @@ import PersonIcon from '@mui/icons-material/Person';
 import DvrIcon from '@mui/icons-material/Dvr';
 import SchoolIcon from '@mui/icons-material/School';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
+import { textFieldClasses } from '@mui/material';
 
 export default function TemporaryDrawer() {
   const [state, setState] = React.useState(false);
@@ -25,6 +26,7 @@ export default function TemporaryDrawer() {
     setState(open);
   };
 
+  // eslint-disable-next-line react/jsx-key
   const icons = [ <PersonIcon />,<DvrIcon />, <BusinessCenterIcon />, <SchoolIcon />]
 
   return (
@@ -45,7 +47,7 @@ export default function TemporaryDrawer() {
         >
           <List>
             {['About me', 'Projects', 'Experience', 'Education'].map((text, index) => (
-              <ListItem key={text} disablePadding>
+              <ListItem key={text} disablePadding component="a" href={`#${text.split(" ")[0].toLocaleLowerCase()}`}>
                 <ListItemButton className={styles.option}>
                   <ListItemIcon className={styles.optionIcon}>
                     {icons[index]}

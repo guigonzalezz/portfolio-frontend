@@ -8,10 +8,10 @@ export default function HeaderDesktop () {
     <header className={styles.header}>
       <div>
         <div className={styles.optionsRight}>
-          <span>About me</span>
-          <span>Projects</span>
-          <span>Experience</span>
-          <span>Education</span>
+          <a href="#about">About me</a>
+          <a href="#projects">Projects</a>
+          <a href="#experience">Experience</a>
+          <a href="#education">Education</a>
         </div>
       </div>
       <div>
@@ -19,8 +19,8 @@ export default function HeaderDesktop () {
       </div>
       <div>
         <div className={styles.optionsLeft}>
-          <span>+55 18 996485419</span>
-          <button>Contact me</button>
+          <a href="#contact">+55 18 996485419</a>
+          <a href="#contact"><button>Contact me</button></a>
         </div>
       </div>
     </header>

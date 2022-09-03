@@ -18,7 +18,9 @@ export default function HeaderMobile() {
       </div>
       <div>
         <div className={styles.optionsRight}>
-          <PermPhoneMsgIcon />
+          <a href="#contact">
+            <PermPhoneMsgIcon/>
+          </a>
         </div>
       </div>
     </header>

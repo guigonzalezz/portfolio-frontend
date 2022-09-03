@@ -26,6 +26,9 @@
 
     .optionsRight {
       justify-content: right;
+      a {
+        margin-top: 6px;
+      }
     }
     .optionsLeft {
       justify-content: space-between;

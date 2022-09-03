@@ -3,7 +3,7 @@ import * as React from 'react';
 export default function Projects(data:any) {
  
   return (
-    <section>
+    <section id="projects">
       Projects
     </section>
   );

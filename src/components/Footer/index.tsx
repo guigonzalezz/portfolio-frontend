@@ -21,10 +21,10 @@ export default function Footer () {
       </div>
 
       <div className={styles.secondPart}>
-        <span>About me</span>
-        <span>Projects</span>
-        <span>Experience</span>
-        <span>Education</span>    
+        <a href="#about">About me</a>
+        <a href="#projects">Projects</a>
+        <a href="#experience">Experience</a>
+        <a href="#education">Education</a>    
       </div>
 
 

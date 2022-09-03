@@ -4,7 +4,7 @@ import styles from './Photos.module.scss'
 export default function Photos({ data, backgroundImg}: any) {
  
   return (
-    <Box className={styles.box}>
+    <Box id="photos" className={styles.box}>
       <Box>
         <Box>
           <img src={backgroundImg} alt="background image"/>
