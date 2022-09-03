@@ -1,7 +1,5 @@
 import { useEffect, ReactNode, SyntheticEvent, useState } from 'react';
 import styles from './Tabs.module.scss'
-import { useRouter } from 'next/router'
-import { useNavigate, useLocation } from 'react-router-dom'
 
 //Components
 import { Box, Tabs, Tab } from '@mui/material';
@@ -29,6 +27,7 @@ interface IProps {
 
 interface ITabPanelProps {
   children?: ReactNode;
+  className: string;
   index: number;
   value: number;
 }
@@ -99,21 +98,26 @@ function a11yProps(index: number, name:string) {
   };
 }
 
-export default function MyTabs({data}: { data: IProps[] }) {
+export default function MyTabs({id, data, sectionByHFSelected}: { id: string, data: IProps[],  sectionByHFSelected: string }) {
   const [value, setValue] = useState(0);
-  const router = useRouter();
-
 
   const handleChange = (event: SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };
-  // console.log("window ==>", window.location.hash)
-  // useEffect(()=>{
-  //   console.log(`You changed the page to: ${window.location.hash}`)
-  // },[window.location.hash])
+  
+  useEffect(()=>{
+    if(sectionByHFSelected) {
+      data.map((item, index)  => {
+        if(item.name == sectionByHFSelected) {
+          setValue(index)
+        }
+      })
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  },[sectionByHFSelected])
 
   return (
-    <Box className={styles['box']}>
+    <Box id={id} className={styles['box']}>
       <Box className={styles['section-titles']} sx={{ maxWidth: { xs: 320, sm:440 ,md: 600  } }}>
         <Tabs 
           variant="scrollable" 

@@ -15,8 +15,9 @@ import SchoolIcon from '@mui/icons-material/School';
 import BusinessCenterIcon from '@mui/icons-material/BusinessCenter';
 import { textFieldClasses } from '@mui/material';
 
-export default function TemporaryDrawer() {
+export default function TemporaryDrawer({setSectionByHFSelected}: {setSectionByHFSelected: (value: string)=>{}}) {
   const [state, setState] = React.useState(false);
+  const options = ['About me', 'Projects', 'Experience', 'Education'];
 
   const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
     if (event.type === 'keydown' && ((event as React.KeyboardEvent).key === 'Tab' || (event as React.KeyboardEvent).key === 'Shift')) {
@@ -46,8 +47,8 @@ export default function TemporaryDrawer() {
           onKeyDown={toggleDrawer(false)}
         >
           <List>
-            {['About me', 'Projects', 'Experience', 'Education'].map((text, index) => (
-              <ListItem key={text} disablePadding component="a" href={`#${text.split(" ")[0].toLocaleLowerCase()}`}>
+            {options.map((text, index) => (
+              <ListItem key={text} disablePadding component="a" href={`#${text == 'Projects' ? 'code-section': 'info-section'}`} onClick={()=>{setSectionByHFSelected(`#${text.split(" ")[0].toLocaleLowerCase()}`)}}>
                 <ListItemButton className={styles.option}>
                   <ListItemIcon className={styles.optionIcon}>
                     {icons[index]}

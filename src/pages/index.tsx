@@ -1,6 +1,7 @@
 import { Box } from '@mui/material'
 import type { GetStaticProps, NextPage } from 'next'
 import Head from 'next/head'
+import { useState } from 'react'
 import Footer from '../components/Footer'
 import Header from '../components/Header'
 import Contact from '../components/Home/Contact'
@@ -43,6 +44,7 @@ const Home: NextPage<{data: IProps[]}> = ({data}) => {
   const rightBackground = medias.find((e:any) => e.attributes.photo.data.attributes.name == 'background-right.png').attributes.photo.data.attributes
   const leftBackground = medias.find((e:any) => e.attributes.photo.data.attributes.name == 'background-left.png').attributes.photo.data.attributes
 
+  const [sectionByHFSelected, setSectionByHFSelected] = useState('')
   
   return (
     <>
@@ -51,19 +53,19 @@ const Home: NextPage<{data: IProps[]}> = ({data}) => {
         <meta name="description" content="Guilherme Gonzalez Portfolio" />
       </Head>
       <div>
-        <Header />
+        <Header setSectionByHFSelected={setSectionByHFSelected}/>
         <main className={styles.main}>
 
           <Photos backgroundImg={rightBackground.url}/>
 
-          <MyTabs data={firstSection}/>
+          <MyTabs id="info-section" data={firstSection} sectionByHFSelected={sectionByHFSelected}/>
 
-          <MyTabs data={secondSection}/>
+          <MyTabs id="code-section" data={secondSection} sectionByHFSelected={sectionByHFSelected}/>
 
           <Contact backgroundImg={leftBackground.url}/>
 
         </main>
-        <Footer />
+        <Footer setSectionByHFSelected={setSectionByHFSelected}/>
       </div>
     </>
   )

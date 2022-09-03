@@ -7,9 +7,7 @@ import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import Link from 'next/link';
 
-export default function Footer () {
-  
-
+export default function Footer ({setSectionByHFSelected}: any) {
 
   return (
     <footer className={styles.footer}>
@@ -21,10 +19,10 @@ export default function Footer () {
       </div>
 
       <div className={styles.secondPart}>
-        <a href="#about">About me</a>
-        <a href="#projects">Projects</a>
-        <a href="#experience">Experience</a>
-        <a href="#education">Education</a>    
+        <a href="#info-section" onClick={()=>{setSectionByHFSelected('about')}}>About me</a>
+        <a href="#code-info" onClick={()=>{setSectionByHFSelected('project')}}>Projects</a>
+        <a href="#info-section"  onClick={()=>{setSectionByHFSelected('experience')}}>Experience</a>
+        <a href="#info-section" onClick={()=>{setSectionByHFSelected('education')}}>Education</a>    
       </div>
 
 
