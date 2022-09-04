@@ -46,3 +46,85 @@
     }
   }
 }
+
+
+.mainSection {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 0;
+  margin: 0;
+
+  .rightSection {
+    position: relative;
+    max-width: 47%;
+    max-height: 100%;
+
+    display: flex;
+    flex-direction: column;
+
+
+    .labelInput {
+      width: 100%;
+    }
+
+    .radioField{
+      position: relative;
+      color: $letter;
+    }
+
+    .inputField {
+      position: relative;
+      border: #D3D3D3 1px solid;
+      border-radius:  5px;
+      background-color: transparent;
+      max-height: 80px;
+      min-height: 51px;
+      margin: 10px 0;
+    }
+
+    input {
+      width: 100%;
+    }
+
+    button {
+      height: 60px;
+      width: 160px;
+      background-color: $third-background;
+      color: $letter;
+    }
+  }
+  
+  .leftSection {
+    position: relative;
+    max-width: 47%;
+    max-height: 100%;
+
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    
+    h1 {
+      width: 100%;
+      font-size: 80px;
+      line-height: 70px;
+      font-weight: 100;
+      margin-bottom: -15px;
+      margin-top: -15px;
+    }
+    
+    p {
+      width: 100%;
+      margin-bottom: 0px;
+    }
+  
+    img {
+      margin-top: 80px;
+      width: 150px;
+      height: 150px;
+    }
+  }
+}
+
+

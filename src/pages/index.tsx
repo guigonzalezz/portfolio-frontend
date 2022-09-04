@@ -43,7 +43,8 @@ const Home: NextPage<{data: IProps[]}> = ({data}) => {
   
   const rightBackground = medias.find((e:any) => e.attributes.photo.data.attributes.name == 'background-right.png').attributes.photo.data.attributes
   const leftBackground = medias.find((e:any) => e.attributes.photo.data.attributes.name == 'background-left.png').attributes.photo.data.attributes
-
+  const contactImage = medias.find((e:any) => e.attributes.photo.data.attributes.name == 'contact.png').attributes.photo.data.attributes
+  
   const [sectionByHFSelected, setSectionByHFSelected] = useState('')
   
   return (
@@ -62,7 +63,7 @@ const Home: NextPage<{data: IProps[]}> = ({data}) => {
 
           <MyTabs id="code-section" data={secondSection} sectionByHFSelected={sectionByHFSelected}/>
 
-          <Contact backgroundImg={leftBackground.url}/>
+          <Contact backgroundImg={leftBackground.url} contactImage={contactImage}/>
 
         </main>
         <Footer setSectionByHFSelected={setSectionByHFSelected}/>

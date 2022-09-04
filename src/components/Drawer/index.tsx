@@ -18,6 +18,7 @@ import { textFieldClasses } from '@mui/material';
 export default function TemporaryDrawer({setSectionByHFSelected}: {setSectionByHFSelected: (value: string)=>{}}) {
   const [state, setState] = React.useState(false);
   const options = ['About me', 'Projects', 'Experience', 'Education'];
+  const shortOptions = ['about', 'project', 'experience', 'education'];
 
   const toggleDrawer = (open: boolean) => (event: React.KeyboardEvent | React.MouseEvent) => {
     if (event.type === 'keydown' && ((event as React.KeyboardEvent).key === 'Tab' || (event as React.KeyboardEvent).key === 'Shift')) {
@@ -48,7 +49,7 @@ export default function TemporaryDrawer({setSectionByHFSelected}: {setSectionByH
         >
           <List>
             {options.map((text, index) => (
-              <ListItem key={text} disablePadding component="a" href={`#${text == 'Projects' ? 'code-section': 'info-section'}`} onClick={()=>{setSectionByHFSelected(`#${text.split(" ")[0].toLocaleLowerCase()}`)}}>
+              <ListItem key={text} disablePadding component="a" href={`#${text == 'Projects' ? 'code-section': 'info-section'}`} onClick={()=>{setSectionByHFSelected(shortOptions[index])}}>
                 <ListItemButton className={styles.option}>
                   <ListItemIcon className={styles.optionIcon}>
                     {icons[index]}
