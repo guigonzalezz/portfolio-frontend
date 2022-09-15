@@ -11,7 +11,7 @@ import '@fontsource/roboto/700.css';
 import createEmotionCache from '../utility/createEmotionCache';
 import lightThemeOptions from '../styles/theme/lightThemeOptions';
 import '../styles/globals.scss';
-interface MyAppProps extends AppProps {
+interface IMyAppProps extends AppProps {
   emotionCache?: EmotionCache;
 }
 
@@ -19,7 +19,7 @@ const clientSideEmotionCache = createEmotionCache();
 
 const lightTheme = createTheme(lightThemeOptions);
 
-const MyApp = (props: MyAppProps) => {
+const MyApp = (props: IMyAppProps) => {
   const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 
   return (
