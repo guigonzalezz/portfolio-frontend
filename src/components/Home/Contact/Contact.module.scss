@@ -37,14 +37,15 @@
       position: absolute;
       width: 100%;
       height: 100%;
-      img {
-        width: 100%;
-        height: 100%;
-        
-        transform:scale(1.8);
-      }
     }
   }
+}
+
+.backgroundImage {
+  width: 100%;
+  height: 100%;
+  
+  transform:scale(1.8);
 }
 
 
@@ -110,21 +111,20 @@
       font-size: 80px;
       line-height: 70px;
       font-weight: 100;
-      margin-bottom: -15px;
-      margin-top: -15px;
+      margin: -1px 0px -15px 3px;
     }
     
     p {
       width: 100%;
       margin-bottom: 0px;
     }
-  
-    img {
-      margin-top: 80px;
-      width: 150px;
-      height: 150px;
-    }
   }
+}
+
+.errorMessage {
+  margin-top: -2px;
+  font-size: 13px;
+  color: rgba(255, 25, 0, 0.845);
 }
 
 

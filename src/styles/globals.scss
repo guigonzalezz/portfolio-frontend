@@ -34,3 +34,35 @@ section {
   margin-bottom: 30px;
 }
 
+input[type="submit"] {
+  background-color: $third-background;
+  color: $letter;
+  height: 60px;
+  border-radius: 5px;
+  border: 1px solid $letter;
+}
+
+input[type="text"] {
+  height: 40px;
+}
+
+input[type="text"], textarea{
+  padding-left: 15px;
+  border-radius: 5px;
+  border: 1px solid $letter;
+  font-size: 14px;
+  background: transparent;
+  color: $letter;
+}
+
+textarea {
+  padding-top: 15px;
+  padding-right: 15px;
+  padding-bottom: 15px;
+}
+
+label {
+  font-size:15px;
+  font-family: 'Roboto Mono';
+  font-weight: 500;
+}
