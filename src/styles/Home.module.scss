@@ -9,6 +9,50 @@
   background-color: $primary-background;
   color: $letter;
 
+  height: 100vh;
+  width: 100vw; 
+
 }
 
+.message {
+  text-align: center;
+  line-height: 0.5;
 
+  h1 {
+    font-size: 45px;
+  }
+
+  h2 {
+    font-family: 'Roboto Mono';
+    font-style: none;
+    font-weight: bolder;
+    font-size: 45px;
+    @media screen and (max-width: 620px) {
+      font-size: 25px;
+    }
+  }
+
+  h3 {
+    font-size: 30px;
+  }
+}
+
+.contact {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+
+  .icons {
+
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+
+    link { 
+      cursor: pointer;
+    }
+  }
+}
